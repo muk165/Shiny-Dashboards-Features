@@ -107,9 +107,9 @@ server <- function(input, output, session){
     if(colnames(displayedData$pbp)[j] == "comment"){
       
       play_num <- displayedData$pbp$play_id_num[i]
-      
+     # browser()
       displayedData$comments <- bind_rows(
-        displayedData$comments[!displayedData$comments$play_id_num == play_num,],
+        displayedData$comments[!displayedData$comments$play_id_num == play_num,], #not selecting those rows which is edited
         data.frame(
           play_id_num = play_num, 
           comment = v
